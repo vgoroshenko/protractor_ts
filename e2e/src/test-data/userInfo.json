@@ -1,0 +1,23 @@
+{
+  "card1": {
+    "learnLangText": "testTextlearn1",
+    "learnLangHint": "testHintlearn1",
+    "learnLangTrans": "testTranslearn1",
+    "knownLangText": "testtextKnown1",
+    "knownLangHint": "testhintKnown1"
+  },
+  "card2": {
+    "learnLangText": "testTextlearn2",
+    "learnLangHint": "testHintlearn2",
+    "learnLangTrans": "testTranslearn2",
+    "knownLangText": "testtextKnown2",
+    "knownLangHint": "testhintKnown2"
+  },
+  "card3": {
+    "learnLangText": "testTextlearn3",
+    "learnLangHint": "testHintlearn3",
+    "learnLangTrans": "testTranslearn3",
+    "knownLangText": "testtextKnown3",
+    "knownLangHint": "testhintKnown3"
+  }
+}
