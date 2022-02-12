@@ -28,7 +28,6 @@ export class ProtractorBase {
     const filePath = '../../test-data/EPOxx_ENGus_List_1_Merge.b4u';
     const fpath = path.resolve(__dirname, filePath);
     this.click(toolbarLocators.OPEN_BUTTON);
-    // toolbarLocators.OPEN_BUTTON.sendKeys(fpath);
     toolbarLocators.OPEN_INPUT.sendKeys(fpath);
   }
 
@@ -45,9 +44,7 @@ export class ProtractorBase {
 
   openMultilist() {
     const el = bykiMenuLocators.OPEN_MULTILIST_BUTTON;
-    // const el = $('input[type="file"]');
     this.click(bykiMenuLocators.MULTILIST_BUTTON);
-    // this.visibilityOf(el);
     const filePath = '../../test-data/multilist';
     const fpath = path.resolve(__dirname, filePath);
     this.click(el);
