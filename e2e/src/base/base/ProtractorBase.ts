@@ -54,7 +54,7 @@ export class ProtractorBase {
 
   click(element: ElementFinder) {
     browser.wait(this.ec.elementToBeClickable(element), this.timeOut,
-      'Failed to click the element: ' + element.getText());
+        'Failed to click the element: ' + element.getText());
     element.click();
   }
 
@@ -63,10 +63,10 @@ export class ProtractorBase {
     element.sendKeys(testData);
   }
 
-  public async clearAndType(element: ElementFinder, testData: string) {
-    await this.visibilityOf(element);
-    await element.clear();
-    await element.sendKeys(testData);
+  public  clearAndType(element: ElementFinder, testData: string) {
+    this.visibilityOf(element);
+    element.clear();
+    element.sendKeys(testData);
   }
 
   public assertText(element: ElementFinder, expectedText: string) {
@@ -75,9 +75,9 @@ export class ProtractorBase {
     expect(actualText).toBe(expectedText);
   }
 
-  protected async inVisibilityOf(element: ElementFinder) {
-    await browser.wait(this.ec.invisibilityOf(element), this.timeOut,
-      'Element is still visible: ' + element.getText());
+  protected  inVisibilityOf(element: ElementFinder) {
+    browser.wait(this.ec.invisibilityOf(element), this.timeOut,
+        'Element is still visible: ' + element.getText());
   }
 
   public assertTrue(element: ElementFinder) {
@@ -85,41 +85,41 @@ export class ProtractorBase {
     expect(element.isDisplayed()).toBe(true);
   }
 
-  public async assertFalse(element: ElementFinder) {
-    await this.visibilityOf(element);
-    expect(await element.isDisplayed()).toBe(false);
+  public assertFalse(element: ElementFinder) {
+    this.visibilityOf(element);
+    expect(element.isDisplayed()).toBe(false);
   }
 
-  public async acceptAlert() {
-    await browser.wait(this.ec.alertIsPresent(), this.timeOut, 'Alert is not present');
-    await (await browser.switchTo().alert()).accept();
+  public  acceptAlert() {
+    browser.wait(this.ec.alertIsPresent(), this.timeOut, 'Alert is not present');
+    (browser.switchTo().alert()).accept();
   }
 
-  public async dismissAlert() {
-    await this.waitForAlert();
-    await (await browser.switchTo().alert()).dismiss();
+  public  dismissAlert() {
+    this.waitForAlert();
+    (browser.switchTo().alert()).dismiss();
   }
 
-  public async tyepInAlert(data: string) {
-    await this.waitForAlert();
-    await (await browser.switchTo().alert()).sendKeys(data);
+  public  tyepInAlert(data: string) {
+    this.waitForAlert();
+    (browser.switchTo().alert()).sendKeys(data);
   }
 
   public async getTextFromAlert(): Promise<string> {
-    await this.waitForAlert();
-    const alertText = await (await browser.switchTo().alert()).getText();
+    this.waitForAlert();
+    const alertText = browser.switchTo().alert().getText();
     return alertText;
   }
 
-  public async switchToFrame(frameNumber: number) {
-    await browser.switchTo().frame(frameNumber);
+  public switchToFrame(frameNumber: number) {
+    browser.switchTo().frame(frameNumber);
   }
 
 
-  public async typeAndTab(element: ElementFinder, testData: string) {
-    await this.visibilityOf(element);
-    await element.clear();
-    await element.sendKeys(testData, protractor.Key.TAB);
+  public typeAndTab(element: ElementFinder, testData: string) {
+    this.visibilityOf(element);
+    element.clear();
+    element.sendKeys(testData, protractor.Key.TAB);
   }
 
   public async typeAndEnter(element: ElementFinder, testData: string) {
@@ -134,27 +134,27 @@ export class ProtractorBase {
     }
   }
 
-  public async mouseHoverAndClick(element: ElementFinder) {
-    await browser.actions()
-      .mouseMove(await element.getWebElement())
-      .click()
-      .perform();
+  public mouseHoverAndClick(element: ElementFinder) {
+    browser.actions()
+        .mouseMove(element.getWebElement())
+        .click()
+        .perform();
 
   }
 
-  public async moveToElement(element: ElementFinder) {
-    await browser.actions()
-      .mouseMove(await element.getWebElement())
-      .perform();
+  public moveToElement(element: ElementFinder) {
+    browser.actions()
+        .mouseMove(element.getWebElement())
+        .perform();
   }
 
   public visibilityOf(element: ElementFinder) {
     browser.wait(this.ec.visibilityOf(element), this.timeOut,
-      'Element is not visible: ' + element);
+        'Element is not visible: ' + element);
   }
 
-  private async waitForAlert() {
-    await browser.wait(this.ec.alertIsPresent(), this.timeOut, 'Alert is not present');
+  private waitForAlert() {
+    browser.wait(this.ec.alertIsPresent(), this.timeOut, 'Alert is not present');
   }
 
 
