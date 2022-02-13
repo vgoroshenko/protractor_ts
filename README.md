@@ -1,1 +1,1 @@
-# protractor + TypeScript + HTML screenshot reporter
+# protractor + TypeScript + HtmlScreenshotReporter
