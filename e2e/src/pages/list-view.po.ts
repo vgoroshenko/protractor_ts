@@ -99,7 +99,6 @@ export class ListViewPage extends CommonFunctions {
 
   clickPaste() {
     this.click(listViewLocators.PASTE_BUTTON);
-    browser.sleep(100);
   }
 
   copyCardWithText(learntext: string) {
